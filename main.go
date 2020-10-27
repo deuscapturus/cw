@@ -14,8 +14,8 @@ import (
 	"unicode"
 
 	"github.com/aws/aws-sdk-go/service/cloudwatchlogs"
+	"github.com/deuscapturus/cw/cloudwatch"
 	"github.com/fatih/color"
-	"github.com/lucagrulla/cw/cloudwatch"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 

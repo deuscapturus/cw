@@ -1,4 +1,4 @@
-module github.com/lucagrulla/cw
+module github.com/deuscapturus/cw
 
 require (
 	github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc // indirect
