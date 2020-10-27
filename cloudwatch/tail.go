@@ -76,7 +76,6 @@ func (cwl *CW) Tail(logGroupName *string, logStreamName *string, follow *bool, s
 			for stream := range cwl.LsStreams(logGroupName, logStreamName) {
 				streams = append(streams, stream)
 			}
-			fmt.Println(streams)
 			if len(streams) == 0 {
 				cwl.log.Println("No such log stream(s) yet.")
 			}
