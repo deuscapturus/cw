@@ -76,8 +76,9 @@ func (cwl *CW) Tail(logGroupName *string, logStreamName *string, follow *bool, s
 			for stream := range cwl.LsStreams(logGroupName, logStreamName) {
 				streams = append(streams, stream)
 			}
+			fmt.Println(streams)
 			if len(streams) == 0 {
-				fmt.Fprintln(os.Stderr, "No such log stream(s) yet.")
+				cwl.log.Println("No such log stream(s) yet.")
 			}
 			if len(streams) >= 100 { //FilterLogEventPages won't take more than 100 stream names
 				start := len(streams) - 100
@@ -97,6 +98,7 @@ func (cwl *CW) Tail(logGroupName *string, logStreamName *string, follow *bool, s
 
 	re := regexp.MustCompile(*grepv)
 	pageHandler := func(res *cloudwatchlogs.FilterLogEventsOutput, lastPage bool) bool {
+
 		for _, event := range res.Events {
 			if *grepv == "" || !re.MatchString(*event.Message) {
 
